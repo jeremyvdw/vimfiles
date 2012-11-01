@@ -66,6 +66,7 @@ set ttyfast                       " Fast scrolling when on a decent connection.
 set wrap                          " Wrap text.
 set showcmd                       " Show last command.
 set ruler                         " Show the cursor position.
+set laststatus=2                  " Show status bar with filename
 set relativenumber                " Show how far a line is from current line.
 set hidden                        " Allow hidden buffers.
 set showmatch                     " Show matching parenthesis.
@@ -85,13 +86,13 @@ filetype plugin indent on         " Load syntax files for better indenting.
 " ------------------------------------------------------------------------------
 
 " Set color for line highlight.
-hi CursorLine cterm=NONE ctermbg=black
+"hi CursorLine cterm=NONE ctermbg=black
 
 " Custom colours for completion menu.
-hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=lightgray
-hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-
+" hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=lightgray
+" hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+" hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+ 
 if has("gui_running")
     set guioptions-=m             " Disable menu bar.
     set guioptions-=T             " Disable the tool bar bar.
