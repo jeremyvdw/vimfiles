@@ -21,6 +21,7 @@ set clipboard+=unnamed            " Share the clipboard.
 set backspace=indent,eol,start    " Fix backspace.
 set nobackup                      " No backups
 set nowritebackup
+set noswapfile
 set undofile
 
 "if version > 7.2
@@ -28,7 +29,7 @@ set undofile
 "endif
 
 set pastetoggle=<F5>              " Paste with sane indentation.
-set spelllang=en_au               " Set spell check language.
+set spelllang=en_us,fr            " Set spell check language.
 
 nnoremap <Tab> :bnext<CR>         " Make tab and shift tab cycle through buffers 
 nnoremap <S-Tab> :bprevious<CR>
@@ -80,6 +81,10 @@ filetype on                       " Detect file type.
 filetype indent on                " Enable file indenting.
 filetype plugin indent on         " Load syntax files for better indenting.
 
+nnoremap j gj
+nnoremap k gk
+
+imap <C-BS> <C-W>
 
 " ------------------------------------------------------------------------------
 " User Interface
