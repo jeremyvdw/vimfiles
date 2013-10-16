@@ -143,8 +143,9 @@ if has("autocmd")
     au FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
     " Reduce tab length for certain files types.
-    au FileType ruby setlocal expandtab shiftwidth=2  tabstop=2
-    au FileType sass setlocal expandtab shiftwidth=2  tabstop=2
+    au FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+    au FileType sass setlocal expandtab shiftwidth=2 tabstop=2
+    filetype plugin indent on
     
     augroup filetypedetect
         au BufNewFile,BufRead bash-fc-* setf sh
