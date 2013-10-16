@@ -16,3 +16,6 @@
 [submodule "bundle/vim-gitgutter.vim"]
 	path = bundle/vim-gitgutter.vim
 	url = https://github.com/airblade/vim-gitgutter.vim
+[submodule "bundle/vim-rake"]
+	path = bundle/vim-rake
+	url = https://github.com/tpope/vim-rake
