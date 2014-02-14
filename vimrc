@@ -84,6 +84,8 @@ filetype plugin indent on         " Load syntax files for better indenting.
 nnoremap j gj
 nnoremap k gk
 
+inoremap jk <ESC>
+
 imap <C-BS> <C-W>
 
 " ------------------------------------------------------------------------------
@@ -173,6 +175,30 @@ augroup END
 
 hi def link rubyRspec Function
 
-call pathogen#infect()
-
 colorscheme molokai
+
+" call pathogen#infect()
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My bundles here:
+"
+" original repos on GitHub
+Bundle 'kien/ctrlp.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rake.git'
+Bundle 'tpope/vim-rails.git'
+Bundle 'Valloric/YouCompleteMe'
+" vim-scripts repos
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+" non-GitHub repos
+"Bundle 'git://git.wincent.com/command-t.git'
