@@ -155,6 +155,7 @@ if has("autocmd")
         au BufNewFile,BufRead *.applescript setf applescript
         au BufNewFile,BufRead *.scpt setf applescript
         au BufNewFile,BufRead *.txt setf text
+        au BufNewFile,BufRead *.exs setf elixir
         au BufNewFile,BufRead *.mustache set ft=html syntax=mustache
         au BufNewFile,BufRead *.zsh-theme set ft=zsh
         au BufNewFile,BufRead *.jquery*.js set ft=javascript syntax=jquery
@@ -196,6 +197,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rake.git'
 Bundle 'tpope/vim-rails.git'
 " Bundle 'Valloric/YouCompleteMe'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'mattonrails/vim-mix'
 " vim-scripts repos
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
