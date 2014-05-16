@@ -76,10 +76,6 @@ set cursorline                    " Highlight the current line.
 set number                        " Show line numbers.
 set cmdheight=2                   " Make command line height to 2 lines.
 set cf                            " Enable error jumping.
-syntax on                         " Enable syntax highlighting.
-filetype on                       " Detect file type.
-filetype indent on                " Enable file indenting.
-filetype plugin indent on         " Load syntax files for better indenting.
 
 nnoremap j gj
 nnoremap k gk
@@ -178,29 +174,42 @@ hi def link rubyRspec Function
 
 colorscheme molokai
 
-" call pathogen#infect()
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My bundles here:
 "
-" original repos on GitHub
-Bundle 'kien/ctrlp.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rake.git'
-Bundle 'tpope/vim-rails.git'
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'mattonrails/vim-mix'
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-" non-GitHub repos
-"Bundle 'git://git.wincent.com/command-t.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rake.git'
+Plugin 'tpope/vim-rails.git'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'mattonrails/vim-mix'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+syntax on                    " Enable syntax highlighting.
+filetype off                 " Detect file type.
+filetype indent on           " Enable file indenting.
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
