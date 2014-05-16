@@ -195,7 +195,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rake.git'
 Bundle 'tpope/vim-rails.git'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 " vim-scripts repos
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
