@@ -187,7 +187,7 @@ Plugin 'gmarik/vundle'
 "
 Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-rails.git'
