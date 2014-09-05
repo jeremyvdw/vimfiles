@@ -6,13 +6,14 @@
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
+inoremap jk <ESC>
+
 let mapleader = ","
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 command! W :w                     " Seriously, it's not like :W is bound
                                   " to anything anyway.
-map K k 
 set nocompatible                  " Turn off vi compatibility.
 set undolevels=1000               " Large undo levels.
 set history=50                    " Size of command history.
@@ -79,8 +80,6 @@ set cf                            " Enable error jumping.
 
 nnoremap j gj
 nnoremap k gk
-
-inoremap jk <ESC>
 
 imap <C-BS> <C-W>
 
