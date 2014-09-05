@@ -192,6 +192,7 @@ Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-rails.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mattonrails/vim-mix'
+Plugin 'kchmck/vim-coffee-script'
 
 
 " All of your Plugins must be added before the following line
