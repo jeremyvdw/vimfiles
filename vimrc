@@ -193,7 +193,7 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mattonrails/vim-mix'
 Plugin 'kchmck/vim-coffee-script'
-
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
