@@ -39,6 +39,7 @@ nnoremap <F6> :noh<CR><F6>        " Make :noh a shortcut.
 nmap ,d :b#<bar>bd#<bar>b<CR>     " close current buffer without closing split
 
 
+
 " ------------------------------------------------------------------------------
 " Search and Replace
 " ------------------------------------------------------------------------------
@@ -174,6 +175,56 @@ hi def link rubyRspec Function
 
 colorscheme molokai
 
+" guns/vim-clojure-static
+let g:clojure_maxlines = 100 " default
+let g:clojure_fuzzy_indent = 1
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
+let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
+" Legacy comma-delimited string version; the list format above is
+" recommended. Note that patterns are implicitly anchored with ^ and $.
+let g:clojure_special_indent_words = 'deftype,defrecord,reify,proxy,extend-type,extend-protocol,letfn'
+let g:clojure_align_multiline_strings = 0
+
+"rainbow_parentheses 
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+" vim-clojure-highlight
+autocmd Syntax clojure EnableSyntaxExtension
+
+" Send_to_Tmux is provided by tslime plugin
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
+" vim-rspec mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" RuboCop
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -188,18 +239,26 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'venantius/vim-cljfmt'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-rails.git'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'mattonrails/vim-mix'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'jgdavey/tslime.vim'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'mattonrails/vim-mix'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/VimClojure'
-Plugin 'derekwyatt/vim-scala'
+"Plugin 'derekwyatt/vim-scala'
 Plugin 'davidzchen/avro-vim'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -218,4 +277,3 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
