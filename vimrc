@@ -157,8 +157,24 @@ if has("autocmd")
         au BufNewFile,BufRead *.zsh-theme set ft=zsh
         au BufNewFile,BufRead *.jquery*.js set ft=javascript syntax=jquery
         au BufNewFile,BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+
+        " Whenever a Go file is saved gofmt will be run against it. 
+        au BufWritePost *.go !gofmt -w %
+
         au! BufRead,BufNewFile *.json set filetype=json 
     augroup END
+
+    let s:default_path = escape(&path, '\ ') " store default value of 'path'
+
+    " Always add the current file's directory to the path and tags list if not
+    " already there. Add it to the beginning to speed up searches.
+    autocmd BufRead *
+          \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+          \ exec "set path-=".s:tempPath |
+          \ exec "set path-=".s:default_path |
+          \ exec "set path^=".s:tempPath |
+          \ exec "set path^=".s:default_path
+
 endif
 
 augroup json_autocmd 
@@ -186,30 +202,31 @@ let g:clojure_special_indent_words = 'deftype,defrecord,reify,proxy,extend-type,
 let g:clojure_align_multiline_strings = 0
 
 "rainbow_parentheses 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
+let g:rainbow_active = 1
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 16
+"let g:rbpt_loadcmd_toggle = 0
 
 " vim-clojure-highlight
 autocmd Syntax clojure EnableSyntaxExtension
@@ -239,11 +256,13 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
+
+" Clojure
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'tpope/vim-salve'
 Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'venantius/vim-cljfmt'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'luochen1990/rainbow'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-rails.git'
