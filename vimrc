@@ -37,7 +37,7 @@ nnoremap <S-Tab> :bprevious<CR>
 nnoremap <F6> :noh<CR><F6>        " Make :noh a shortcut.
 
 nmap ,d :b#<bar>bd#<bar>b<CR>     " close current buffer without closing split
-
+nmap ,c :close<CR>
 
 
 " ------------------------------------------------------------------------------
@@ -257,6 +257,11 @@ map <Leader>a :call RunAllSpecs()<CR>
 " RuboCop
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
+
+" NERDTree on <leader>n
+noremap <silent> <leader>n :NERDTreeToggle<CR>
+
+let g:clojure_foldwords = "def,ns"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
