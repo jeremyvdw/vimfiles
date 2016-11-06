@@ -79,6 +79,7 @@ set cursorline                    " Highlight the current line.
 set number                        " Show line numbers.
 set cmdheight=2                   " Make command line height to 2 lines.
 set cf                            " Enable error jumping.
+set nofoldenable                  " disable folding
 
 nnoremap j gj
 nnoremap k gk
@@ -228,6 +229,20 @@ let g:rainbow_active = 1
 "let g:rbpt_max = 16
 "let g:rbpt_loadcmd_toggle = 0
 
+let g:projectionist_heuristics = {
+      \ "project.clj": {
+      \   "src/*.clj": {
+      \     "alternate": "test/*{}_test.clj",
+      \     "type": "source"
+      \   },
+      \   "test/*_test.clj": {
+      \     "alternate": "src/*{}.clj",
+      \     "type": "source"
+      \   },
+      \   "project.clj": {"type": "project" }
+      \ }
+      \ }
+
 " vim-clojure-highlight
 autocmd Syntax clojure EnableSyntaxExtension
 
@@ -256,28 +271,31 @@ Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-projectionist'
+
+Plugin 'jgdavey/tslime.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Clojure
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-salve'
 Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'luochen1990/rainbow'
 
+Plugin 'neovim/node-host'
+Plugin 'snoe/nvim-parinfer.js'
+
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rake.git'
-Plugin 'tpope/vim-rails.git'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'jgdavey/tslime.vim'
+" Plugin 'tpope/vim-rake.git'
+" Plugin 'tpope/vim-rails.git'
+" Plugin 'ngmy/vim-rubocop'
+" Plugin 'thoughtbot/vim-rspec'
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'mattonrails/vim-mix'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-" Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'derekwyatt/vim-scala'
-Plugin 'davidzchen/avro-vim'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'davidzchen/avro-vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -287,7 +305,7 @@ filetype indent on           " Enable file indenting.
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
+
 " Brief help
 " :PluginList          - list configured plugins
 " :PluginInstall(!)    - install (update) plugins
