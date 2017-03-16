@@ -243,6 +243,9 @@ let g:projectionist_heuristics = {
       \ }
       \ }
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " vim-clojure-highlight
 autocmd Syntax clojure EnableSyntaxExtension
 
@@ -299,7 +302,8 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'elixir-lang/vim-elixir'
 " Plugin 'mattonrails/vim-mix'
 " Plugin 'pangloss/vim-javascript'
-" Plugin 'davidzchen/avro-vim'
+Plugin 'davidzchen/avro-vim'
+Plugin 'Shougo/deoplete.nvim'
 
 
 " All of your Plugins must be added before the following line
