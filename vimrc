@@ -36,8 +36,10 @@ nnoremap <Tab> :bnext<CR>         " Make tab and shift tab cycle through buffers
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <F6> :noh<CR><F6>        " Make :noh a shortcut.
 
-nmap ,d :b#<bar>bd#<bar>b<CR>     " close current buffer without closing split
-nmap ,c :close<CR>
+nmap <Leader>d :b#<bar>bd#<bar>b<CR>     " close current buffer without closing split
+nmap <Leader>c :close<CR>
+nmap <Leader>g gf
+nmap <Leader>f :NERDTreeFind<CR>
 
 
 " ------------------------------------------------------------------------------
