@@ -234,11 +234,11 @@ let g:rainbow_active = 1
 let g:projectionist_heuristics = {
       \ "project.clj": {
       \   "src/*.clj": {
-      \     "alternate": "test/*{}_test.clj",
+      \     "alternate": "test/{}_test.clj",
       \     "type": "source"
       \   },
       \   "test/*_test.clj": {
-      \     "alternate": "src/*{}.clj",
+      \     "alternate": "src/{}.clj",
       \     "type": "source"
       \   },
       \   "project.clj": {"type": "project" }
@@ -258,6 +258,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
 
 " RuboCop
 let g:vimrubocop_keymap = 0
@@ -305,7 +308,7 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'mattonrails/vim-mix'
 " Plugin 'pangloss/vim-javascript'
 Plugin 'davidzchen/avro-vim'
-Plugin 'Shougo/deoplete.nvim'
+" Plugin 'Shougo/deoplete.nvim'
 
 
 " All of your Plugins must be added before the following line
