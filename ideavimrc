@@ -1,0 +1,97 @@
+" ------------------------------------------------------------------------------
+"          FILE: .vimrc
+"   DESCRIPTION: Vim configuration file. Based heavily on Sorin Ionescu's.
+"        AUTHOR: Christopher Chow (chris at chowie dot net)
+" ------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" General Settings
+" ------------------------------------------------------------------------------
+inoremap jk <ESC>
+
+let mapleader = ","
+
+command! W :w                     " Seriously, it's not like :W is bound
+                                  " to anything anyway.
+set nocompatible                  " Turn off vi compatibility.
+set undolevels=1000               " Large undo levels.
+set history=50                    " Size of command history.
+set encoding=utf8                 " Always use unicode.
+set clipboard+=unnamed            " Share the clipboard.
+set backspace=indent,eol,start    " Fix backspace.
+set nobackup                      " No backups
+set nowritebackup
+set noswapfile
+set undofile
+
+set pastetoggle=<F5>              " Paste with sane indentation.
+set spelllang=en_us,fr            " Set spell check language.
+
+" Make :noh a shortcut.
+nnoremap <F6> :noh<CR><F6>
+
+nmap <Leader>d :b#<bar>bd#<bar>b<CR>     " close current buffer without closing split
+nmap <Leader>g gf
+
+" Navigate between splits
+map <c-j> <c-w>j<c-w><Bar>
+map <c-k> <c-w>k<c-w><Bar>
+map <c-h> <c-w>h<c-w><Bar>
+map <c-l> <c-w>l<c-w><Bar>
+
+" Navigate between splits
+" Make tab and shift tab cycle through buffers 
+nmap <Tab> :action NextTab<CR>
+nmap <S-Tab> :action PreviousTab<CR>
+
+" allows all window commands in insert mode
+imap <C-w> <C-o><C-w>
+
+" navigate between file position
+map <C-o> :action Back<CR>
+map <C-n> :action Forward<CR>
+" close tab
+map <Leader>C :action Close<CR>
+
+" ------------------------------------------------------------------------------
+" Search and Replace
+" ------------------------------------------------------------------------------
+set incsearch                     " Show partial matches as search is entered.
+set hlsearch                      " Highlight search patterns.
+set ignorecase                    " Enable case insensitive search.
+set smartcase                     " Disable case insensitivity if mixed case.
+set wrapscan                      " Wrap to top of buffer when searching.
+set gdefault                      " Make search and replace global by default.
+
+
+" ------------------------------------------------------------------------------
+" White Space
+" ------------------------------------------------------------------------------
+set tabstop=2                     " Set tab to equal 4 spaces.
+set softtabstop=2                 " Set soft tabs equal to 4 spaces.
+set shiftwidth=2                  " Set auto indent spacing.
+set shiftround                    " Shift to the next round tab stop.
+set expandtab                     " Expand tabs into spaces.
+set smarttab                      " Insert spaces in front of lines.
+
+
+" ------------------------------------------------------------------------------
+" Presentation
+" ------------------------------------------------------------------------------
+set shortmess=aIoO                " Show short messages, no intro.
+set ttyfast                       " Fast scrolling when on a decent connection.
+set wrap                          " Wrap text.
+set showcmd                       " Show last command.
+set ruler                         " Show the cursor position.
+set laststatus=2                  " Show status bar with filename
+set relativenumber                " Show how far a line is from current line.
+set hidden                        " Allow hidden buffers.
+set showmatch                     " Show matching parenthesis.
+set matchpairs+=<:>               " Pairs to match.
+set cursorline                    " Highlight the current line.
+set number                        " Show line numbers.
+set cmdheight=2                   " Make command line height to 2 lines.
+set cf                            " Enable error jumping.
+set nofoldenable                  " disable folding
+
+"nnoremap j gj
+"nnoremap k gk
