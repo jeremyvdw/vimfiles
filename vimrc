@@ -273,11 +273,12 @@ let g:clojure_foldwords = "def,ns"
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle')
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle
-" required! 
-Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " My bundles here:
 "
@@ -286,18 +287,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-projectionist'
-
-Plugin 'jgdavey/tslime.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-
-" Clojure
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'luochen1990/rainbow'
-
-Plugin 'neovim/node-host'
-Plugin 'snoe/nvim-parinfer.js'
 
 Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-rake.git'
@@ -310,21 +299,30 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'davidzchen/avro-vim'
 " Plugin 'Shougo/deoplete.nvim'
 
+Plugin 'jgdavey/tslime.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Clojure
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-salve'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'luochen1990/rainbow'
+Plugin 'eraserhd/parinfer-rust'
+
+Plugin 'rust-lang/rust.vim'
+let g:autofmt_autosave = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-syntax on                    " Enable syntax highlighting.
-filetype off                 " Detect file type.
-filetype indent on           " Enable file indenting.
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-
+"
 " Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
