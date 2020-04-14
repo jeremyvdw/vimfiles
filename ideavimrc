@@ -95,3 +95,4 @@ set nofoldenable                  " disable folding
 
 "nnoremap j gj
 "nnoremap k gk
+set ideajoin
