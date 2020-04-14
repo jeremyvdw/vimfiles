@@ -271,58 +271,42 @@ noremap <silent> <leader>n :NERDTreeToggle<CR>
 
 let g:clojure_foldwords = "def,ns"
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " My bundles here:
 "
-Plugin 'kien/ctrlp.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-projectionist'
+Plug 'kien/ctrlp.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-projectionist'
 
-Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-rake.git'
-" Plugin 'tpope/vim-rails.git'
-" Plugin 'ngmy/vim-rubocop'
-" Plugin 'thoughtbot/vim-rspec'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'mattonrails/vim-mix'
-" Plugin 'pangloss/vim-javascript'
-Plugin 'davidzchen/avro-vim'
-" Plugin 'Shougo/deoplete.nvim'
+Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rake.git'
+" Plug 'tpope/vim-rails.git'
+" Plug 'ngmy/vim-rubocop'
+" Plug 'thoughtbot/vim-rspec'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'mattonrails/vim-mix'
+" Plug 'pangloss/vim-javascript'
+" Plug 'davidzchen/avro-vim'
+" Plug 'Shougo/deoplete.nvim'
 
-Plugin 'jgdavey/tslime.vim'
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'jgdavey/tslime.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Clojure
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-salve'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'luochen1990/rainbow'
-Plugin 'eraserhd/parinfer-rust'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'luochen1990/rainbow', { 'for': 'clojure' }
+Plug 'eraserhd/parinfer-rust', { 'for': 'clojure', 'do': 'cargo build --release' }
 
-Plugin 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 let g:autofmt_autosave = 1
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
