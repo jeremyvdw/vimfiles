@@ -1,5 +1,5 @@
 " ------------------------------------------------------------------------------
-"          FILE: .vimrc
+"          FILE: init.vim
 "   DESCRIPTION: Vim configuration file. Based heavily on Sorin Ionescu's.
 "        AUTHOR: Christopher Chow (chris at chowie dot net)
 " ------------------------------------------------------------------------------
@@ -41,6 +41,12 @@ nmap <Leader>c :close<CR>
 nmap <Leader>g gf
 nmap <Leader>f :NERDTreeFind<CR>
 
+
+" easy nav between windows
+map <C-l> <C-W>l<C-W>_
+map <C-k> <C-W>k<C-W>_
+map <C-j> <C-W>j<C-W>_
+map <C-h> <C-W>h<C-W>_
 
 " ------------------------------------------------------------------------------
 " Search and Replace
@@ -252,14 +258,14 @@ let g:deoplete#enable_at_startup = 1
 autocmd Syntax clojure EnableSyntaxExtension
 
 " Send_to_Tmux is provided by tslime plugin
-let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
-" vim-rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+"let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
+"" vim-rspec mappings
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+"
+"nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 
 " RuboCop
@@ -272,41 +278,6 @@ noremap <silent> <leader>n :NERDTreeToggle<CR>
 let g:clojure_foldwords = "def,ns"
 
 
-call plug#begin('~/.vim/plugged')
-
-" My bundles here:
-"
-Plug 'kien/ctrlp.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-projectionist'
-
-Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-rake.git'
-" Plug 'tpope/vim-rails.git'
-" Plug 'ngmy/vim-rubocop'
-" Plug 'thoughtbot/vim-rspec'
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'mattonrails/vim-mix'
-" Plug 'pangloss/vim-javascript'
-" Plug 'davidzchen/avro-vim'
-" Plug 'Shougo/deoplete.nvim'
-
-Plug 'jgdavey/tslime.vim'
-Plug 'christoomey/vim-tmux-navigator'
-
-" Clojure
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'luochen1990/rainbow', { 'for': 'clojure' }
-Plug 'eraserhd/parinfer-rust', { 'for': 'clojure', 'do': 'cargo build --release' }
-
-Plug 'rust-lang/rust.vim'
-let g:autofmt_autosave = 1
-
-call plug#end()
-
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+
