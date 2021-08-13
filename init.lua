@@ -18,6 +18,7 @@ vim.api.nvim_exec(
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
+  use 'tpope/vim-surround' -- manage surrounding elements
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
@@ -38,8 +39,9 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-compe' -- Autocompletion plugin
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
+  use {'fatih/vim-go', ft = 'go'}
 
-  use 'hashivim/vim-terraform'
+  use {'hashivim/vim-terraform', ft = {'hcl', 'tf', 'tfvars'}}
 
   use {'guns/vim-sexp', ft = 'clojure'}
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
@@ -47,6 +49,12 @@ require('packer').startup(function()
 
   use 'christoomey/vim-tmux-navigator'
 end)
+
+
+-- space prior to tabs
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 2
 
 --Incremental live completion
 vim.o.inccommand = 'nosplit'
@@ -186,7 +194,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Enable the following language servers
-local servers = { 'clojure_lsp' }
+local servers = { 'clojure_lsp', 'gopls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

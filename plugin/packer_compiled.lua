@@ -134,6 +134,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
+  ["vim-go"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-go"
+  },
   ["vim-gutentags"] = {
     loaded = true,
     path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-gutentags"
@@ -152,9 +157,14 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-sexp-mappings-for-regular-people"
   },
-  ["vim-terraform"] = {
+  ["vim-surround"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-terraform"
+    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-terraform"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-terraform"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
@@ -167,7 +177,9 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType go ++once lua require("packer.load")({'vim-go'}, { ft = "go" }, _G.packer_plugins)]]
 vim.cmd [[au FileType clojure ++once lua require("packer.load")({'parinfer-rust', 'vim-sexp', 'vim-sexp-mappings-for-regular-people'}, { ft = "clojure" }, _G.packer_plugins)]]
+vim.cmd [[au FileType hcl, tf, tfvars ++once lua require("packer.load")({'vim-terraform'}, { ft = "hcl, tf, tfvars" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
