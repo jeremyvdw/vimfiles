@@ -79,6 +79,9 @@ vim.o.breakindent = true
 --Save undo history
 vim.cmd [[set undofile]]
 
+-- serious indentation
+vim.cmd [[set tabstop=2 shiftwidth=2 expandtab]]
+
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
