@@ -47,6 +47,7 @@ require('packer').startup(function()
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
   use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
 
+  use {'tpope/vim-fireplace', ft = 'clojure' }
   use 'christoomey/vim-tmux-navigator'
 end)
 
