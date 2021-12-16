@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "~/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/jeremy/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "~/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,104 +71,104 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/LuaSnip"
+    path = "~/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   ["lightline.vim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/lightline.vim"
+    path = "~/.local/share/nvim/site/pack/packer/start/lightline.vim"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "~/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "~/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "~/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
+    path = "~/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
   },
   ["onedark.vim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/onedark.vim"
+    path = "~/.local/share/nvim/site/pack/packer/start/onedark.vim"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["parinfer-rust"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/parinfer-rust"
+    path = "~/.local/share/nvim/site/pack/packer/opt/parinfer-rust"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "~/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-commentary"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-go"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-go"
+    path = "~/.local/share/nvim/site/pack/packer/opt/vim-go"
   },
   ["vim-gutentags"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-gutentags"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-gutentags"
   },
   ["vim-rhubarb"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
   },
   ["vim-sexp"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-sexp"
+    path = "~/.local/share/nvim/site/pack/packer/opt/vim-sexp"
   },
   ["vim-sexp-mappings-for-regular-people"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-sexp-mappings-for-regular-people"
+    path = "~/.local/share/nvim/site/pack/packer/opt/vim-sexp-mappings-for-regular-people"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-surround"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-terraform"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/opt/vim-terraform"
+    path = "~/.local/share/nvim/site/pack/packer/opt/vim-terraform"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
-    path = "/Users/jeremy/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
+    path = "~/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   }
 }
 
