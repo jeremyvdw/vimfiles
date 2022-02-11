@@ -142,6 +142,24 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--hidden", "-E", ".git" }
+    },
+    live_grep = {
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--glob=!.git/"
+      }
+    }
+  }
 }
 --Add leader shortcuts
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
