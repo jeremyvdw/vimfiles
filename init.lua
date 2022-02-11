@@ -48,7 +48,6 @@ require('packer').startup(function()
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
   use {'tpope/vim-fireplace', ft = 'clojure'}
 
-  use {'tpope/vim-fireplace', ft = 'clojure' }
   use 'christoomey/vim-tmux-navigator'
 end)
 
