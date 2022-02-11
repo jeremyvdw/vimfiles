@@ -43,9 +43,9 @@ require('packer').startup(function()
 
   use {'hashivim/vim-terraform', ft = {'hcl', 'tf', 'tfvars'}}
 
+  use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
   use {'guns/vim-sexp', ft = 'clojure'}
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
-  --use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
   use {'tpope/vim-fireplace', ft = 'clojure'}
 
   use {'tpope/vim-fireplace', ft = 'clojure' }
