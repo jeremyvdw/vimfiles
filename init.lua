@@ -25,7 +25,13 @@ require('packer').startup(function()
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
+
+  -- colorschemes
   use 'joshdick/onedark.vim' -- Theme inspired by Atom
+  use 'sainnhe/everforest'
+  use 'tomasiser/vim-code-dark'
+  use 'dikiaap/minimalist'
+
   use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
@@ -48,6 +54,7 @@ require('packer').startup(function()
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
   use {'tpope/vim-fireplace', ft = 'clojure'}
 
+  use 'tpope/vim-projectionist'
   use 'christoomey/vim-tmux-navigator'
 end)
 
