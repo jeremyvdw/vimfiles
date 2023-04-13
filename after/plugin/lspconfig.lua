@@ -1,4 +1,4 @@
--- LSP settings
+-- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -41,6 +41,10 @@ require('lspconfig')['clojure_lsp'].setup{
     flags = lsp_flags,
 }
 require('lspconfig')['gopls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['clangd'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }

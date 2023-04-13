@@ -27,12 +27,16 @@ require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
 
   -- colorschemes
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
+  use 'navarasu/onedark.nvim'
   use 'sainnhe/everforest'
   use 'tomasiser/vim-code-dark'
   use 'dikiaap/minimalist'
 
-  use 'itchyny/lightline.vim' -- Fancier statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
@@ -49,13 +53,20 @@ require('packer').startup(function()
 
   use {'hashivim/vim-terraform', ft = {'hcl', 'tf', 'tfvars'}}
 
-  use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
   use {'guns/vim-sexp', ft = 'clojure'}
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
   use {'tpope/vim-fireplace', ft = 'clojure'}
+  use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
+
+  -- use {'dhleong/vim-mantel', ft = 'clojure'}
+  -- use {'liquidz/vim-iced', ft = 'clojure'}
 
   use 'tpope/vim-projectionist'
   use 'christoomey/vim-tmux-navigator'
+
+--   use 'aklt/plantuml-syntax'             -- syntax hl for puml
+--   use 'tyru/open-browser.vim'            -- hooks for opeing browser
+--   use 'weirongxu/plantuml-previewer.vim' -- previewer 
 end)
 
 
@@ -97,15 +108,27 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 --Set colorscheme (order is important here)
-vim.o.termguicolors = true
-vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme onedark]]
+-- vim.o.termguicolors = true
+-- vim.g.onedark_terminal_italics = 2
+-- vim.cmd [[colorscheme onedark]]
+require('onedark').setup {
+  style = 'darker',
+  colors = {
+    bg0 = "#181818",
+  },
+  transparent = false, -- hide/show bg
+  -- Lualine options --
+  lualine = {
+    transparent = false, -- lualine center bar transparency
+  },
+}
+require('onedark').load()
 
---Set statusbar
-vim.g.lightline = {
-  colorscheme = 'onedark',
-  active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
-  component_function = { gitbranch = 'FugitiveHead' },
+require('lualine').setup {
+  options = {
+    theme = 'onedark'
+    -- ... your lualine config
+  }
 }
 
 --Remap space as leader key
