@@ -32,10 +32,14 @@ require('packer').startup(function()
   use 'tomasiser/vim-code-dark'
   use 'dikiaap/minimalist'
   use { "catppuccin/nvim", as = "catppuccin" }
-
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    "feline-nvim/feline.nvim",
+    after = "catppuccin",
+    config = function()
+      require("feline").setup {
+        components = require("catppuccin.groups.integrations.feline").get(),
+      }
+    end,
   }
 
   -- Add indentation guides even on blank lines
@@ -108,23 +112,6 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
---Set colorscheme (order is important here)
--- vim.o.termguicolors = true
--- vim.g.onedark_terminal_italics = 2
--- vim.cmd [[colorscheme onedark]]
--- require('onedark').setup {
---   style = 'darker',
---   colors = {
---     bg0 = "#181818",
---   },
---   transparent = false, -- hide/show bg
---   -- Lualine options --
---   lualine = {
---     transparent = false, -- lualine center bar transparency
---   },
--- }
--- require('onedark').load()
-
 -- catppuccin
 -- require("catppuccin").setup({
 --   flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -192,12 +179,6 @@ require("catppuccin").setup({
 -- require("catppuccin").load()
 
 vim.cmd.colorscheme "catppuccin"
-
-require('lualine').setup {
-  options = {
-    theme = 'catppuccin'
-  }
-}
 
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
