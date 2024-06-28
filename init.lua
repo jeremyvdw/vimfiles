@@ -60,7 +60,8 @@ require('packer').startup(function()
 
   use {'guns/vim-sexp', ft = 'clojure'}
   use {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'}
-  use {'tpope/vim-fireplace', ft = 'clojure'}
+  -- use {'tpope/vim-fireplace', ft = 'clojure'}
+  use {'Olical/conjure', ft = 'clojure'}
   use {'eraserhd/parinfer-rust', ft = 'clojure', run = 'cargo build --release'}
 
   -- use {'dhleong/vim-mantel', ft = 'clojure'}
@@ -183,7 +184,7 @@ vim.cmd.colorscheme "catppuccin"
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 
 -- jk for <ESC>
 vim.api.nvim_set_keymap('i', 'jk', "<ESC>", { noremap = true })
