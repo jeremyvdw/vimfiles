@@ -72,6 +72,9 @@ require('lspconfig')['lua_ls'].setup{
           'vim',
           'require'
         },
+        disable = {
+          'missing-fields'
+        }
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

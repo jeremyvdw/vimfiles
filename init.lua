@@ -51,6 +51,7 @@ require('packer').startup(function()
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -118,74 +119,6 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
--- catppuccin
--- require("catppuccin").setup({
---   flavour = "mocha", -- latte, frappe, macchiato, mocha
---   background = { -- :h background
---     light = "latte",
---     dark = "mocha",
---   },
---   transparent_background = false, -- disables setting the background color.
---   show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
---   term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
---   dim_inactive = {
---     enabled = false, -- dims the background color of inactive window
---     shade = "dark",
---     percentage = 0.15, -- percentage of the shade to apply to the inactive window
---   },
---   no_italic = false, -- Force no italic
---   no_bold = false, -- Force no bold
---   no_underline = false, -- Force no underline
---   styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
---     comments = { "italic" }, -- Change the style of comments
---     conditionals = { "italic" },
---     loops = {},
---     functions = {},
---     keywords = {},
---     strings = {},
---     variables = {},
---     numbers = {},
---     booleans = {},
---     properties = {},
---     types = {},
---     operators = {},
---   },
---   color_overrides = {},
---   custom_highlights = {},
---   integrations = {
---     cmp = true,
---     gitsigns = true,
---     nvimtree = true,
---     treesitter = true,
---     notify = false,
---     mini = false,
---     native_lsp = {
---       enabled = true,
---       virtual_text = {
---         errors = { "italic" },
---         hints = { "italic" },
---         warnings = { "italic" },
---         information = { "italic" },
---       },
---       underlines = {
---         errors = { "underline" },
---         hints = { "underline" },
---         warnings = { "underline" },
---         information = { "underline" },
---       },
---       inlay_hints = {
---         background = true,
---       },
---     },
---   },
--- })
-require("catppuccin").setup({
-  flavour = "mocha",
-})
--- require("catppuccin").load()
-
-vim.cmd.colorscheme "catppuccin"
-
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
@@ -204,6 +137,12 @@ vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
 vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_char_highlight = 'LineNr'
 vim.g.indent_blankline_show_trailing_blankline_indent = false
+
+-- Catppuccin
+require("catppuccin").setup({
+  flavour = "mocha",
+})
+vim.cmd.colorscheme "catppuccin"
 
 -- Telescope
 require('telescope').setup {
@@ -272,54 +211,34 @@ table.insert(runtime_path, 'lua/?/init.lua')
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
-require('nvim-treesitter.configs').setup {
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+  ensure_installed = { "bash", "clojure", "lua", "vim", "vimdoc", "query", "fennel" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (or "all")
+  ignore_install = {},
+
   highlight = {
-    enable = true, -- false will disable the whole extension
-  },
-  incremental_selection = {
     enable = true,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
-    },
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    disable = {},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
   },
 }
 
@@ -328,8 +247,7 @@ require('nvim-treesitter.configs').setup {
 
 local luasnip = require("luasnip")
 local cmp = require("cmp")
-
- cmp.setup({
+cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
