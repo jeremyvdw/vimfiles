@@ -106,7 +106,8 @@ vim.o.mouse = 'a'
 vim.o.breakindent = true
 
 --Save undo history
-vim.cmd [[set undofile]]
+-- vim.cmd [[set undofile]]
+vim.opt.undofile = true
 
 -- serious indentation
 vim.cmd [[set tabstop=2 shiftwidth=2 expandtab]]
